@@ -2,6 +2,7 @@ from dateutil import parser
 from datetime import datetime
 
 def check_dates(start_date,end_date):
+    """Validates dates/date range. Prompts repeated user input if incorrect."""
     try: 
         bool(parser.parse(start_date))
         bool(parser.parse(end_date))
@@ -13,9 +14,9 @@ def check_dates(start_date,end_date):
         print('Dates not specified in script or is  incorrect. Prompting user for date range...')
         while True: 
             try:
-                start_date = input('Please input the start date (YYYY-MM-DD):')
+                start_date = input('Please input the start date (YYYY-MM-DD): ')
                 bool(parser.parse(start_date))
-                end_date = input('Please input the end date (YYYY-MM-DD):')
+                end_date = input('Please input the end date (YYYY-MM-DD): ')
                 bool(parser.parse(end_date))
                 if datetime.strptime(start_date, '%Y-%m-%d').date() > datetime.strptime(end_date, '%Y-%m-%d').date():
                     raise ValueError
