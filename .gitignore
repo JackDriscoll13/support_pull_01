@@ -1,6 +1,7 @@
 support_pull/script/outputs/output1.csv
 support_pull/script/outputs/output2.csv
-support_pull/explores
+
+support_pull/explores/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
