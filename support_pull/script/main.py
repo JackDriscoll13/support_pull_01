@@ -35,12 +35,19 @@ def main():
     # Calculate first response time
     end_df['firstresponsetime'] = (end_df['firstreplydate'] - end_df['date'])
 
+    # Calculate department averages
+    dropped_non_matches = end_df[end_df['replyid'] > 0 ]
+    summary_stats = dropped_non_matches.groupby('department').agg({'firstresponsetime':['mean','count']})
+
+
     # Export to csv
-    export_path1 = 'outputs/output1.csv'
-    export_path2 = 'outputs/output2.csv'
+    export_path1 = 'outputs/all_data.csv'
+    export_path2 = 'outputs/departments_response_all.csv'
+    export_path_3 = 'outputs/departments_response_avg.csv'
 
     end_df.to_csv(export_path1)
     end_df[['department','firstresponsetime']].to_csv(export_path2)
+    summary_stats.to_csv(export_path_3)
 
     print(f'Script Complete. End results exported to {export_path1} and {export_path2}.')
     return end_df
