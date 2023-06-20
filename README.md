@@ -8,11 +8,6 @@ Step 2. Rename the '.env.env' file to '.env' and specify your MySql configuratio
 Step 3. Run the script and enter your date range. \
 
 
-### Command Use Guide:
-
-
-
-
 ### Other info:
 Python version 3.10.7
 See requirements.txt file for installed dependencies
